@@ -1,0 +1,120 @@
+1) Eg of global scope
+
+global_var = 100  # Global variable
+
+def display():
+    print(f"Global variable in display(): {global_var}")
+
+def main():
+    print(f"Global variable in main(): {global_var}")
+    display()
+
+main()
+
+2) Ex of local scope 
+
+def display():
+    x = 10  # Local variable
+    print(f"Value of x inside display(): {x}")
+
+def main():
+    display()
+    # print(x) # NameError: name 'x' is not defined
+
+main()
+
+3) METHODS AND ATTRIBUTES
+
+class ClassName:
+    def __init__(self):
+        self.attribute = 0  # Attribute
+
+    def set_attribute(self, value):  # Method
+        self.attribute = value
+
+    def get_attribute(self):  # Method
+        return self.attribute
+
+4) You are developing a pet management system where each dog has a name and breed. The system should allow users to set a dog's details and make the dog "bark" by displaying a message with its name.
+
+
+class Dog:
+    def set_details(self, name, breed):
+        self.name = name
+        self.breed = breed
+
+    def bark(self):
+        print(f"{self.name} says Woof!")
+
+# Creating an instance
+dog1 = Dog()
+dog1.set_details("Buddy", "Golden Retriever")
+dog1.bark()
+
+
+5) Ex : default constructor
+
+class BankAccount:
+    def __init__(self):
+        self.name = "Unknown"
+        self.balance = 0.0
+
+    def display(self):
+        print(f"Account Holder: {self.name}\nBalance: ${self.balance}")
+
+# Creating an object using the default constructor
+acc1 = BankAccount()
+acc1.display()
+
+6) Ex: parameterizd constructor
+
+class BankAccount:
+class BankAccount:
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+
+    def display(self):
+        print(f"Account Holder: {self.name}\nBalance: ${self.balance}")
+
+# Creating an object using the parameterized constructor
+acc1 = BankAccount("John Doe", 5000.0)
+acc1.display()
+
+
+7) Problem Statement:Create a BankAccount class with private attributes account_number and balance. Implement a constructor to initialize these values and public methods to deposit, withdraw, and display balance.
+
+class BankAccount:
+    def __init__(self, account_number, balance):
+        self.__account_number = account_number  # Private attribute
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient balance!")
+
+    def display_balance(self):
+        print(f"Account Number: {self.__account_number}, Balance: {self.__balance}")
+
+
+8) Design a program that demonstrates the concept of encapsulation by creating a class representing a student. The class should have private member variables for student name, roll number, and marks. Implement member functions to set and get these values. Write a main function to create an object of the class and test the member functions.
+
+
+class Student:
+    def __init__(self, name, roll_number, marks):
+        self.__name, self.__roll_number, self.__marks = name, roll_number, marks
+    def display(self):
+        print(self.__name, self.__roll_number, self.__marks, sep="\n")
+
+def main():
+    student = Student(input(), int(input()), float(input()))
+    student.display()
+
+if __name__ == "__main__":
+    main()
+
